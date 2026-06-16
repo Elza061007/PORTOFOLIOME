@@ -1,0 +1,747 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EFD.dev | Elza Fikri Dinata - Portfolio</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#10141a",
+                        "surface-tint": "#3cd7ff",
+                        "on-tertiary": "#00354a",
+                        "on-error": "#690005",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#d2bbff",
+                        "inverse-on-surface": "#2d3137",
+                        "on-tertiary-container": "#005676",
+                        "on-background": "#dfe2eb",
+                        "primary-container": "#00d4ff",
+                        "tertiary-fixed-dim": "#7bd0ff",
+                        "on-secondary-fixed": "#25005a",
+                        "surface-container-low": "#181c22",
+                        "surface-container": "#1c2026",
+                        "on-surface-variant": "#bbc9cf",
+                        "secondary": "#d2bbff",
+                        "primary-fixed-dim": "#3cd7ff",
+                        "inverse-primary": "#00677e",
+                        "on-primary-fixed-variant": "#004e5f",
+                        "error-container": "#93000a",
+                        "surface-dim": "#10141a",
+                        "on-primary-container": "#00586b",
+                        "surface-container-lowest": "#0a0e14",
+                        "surface-container-highest": "#31353c",
+                        "on-secondary": "#3f008e",
+                        "tertiary-container": "#6fcdff",
+                        "on-secondary-container": "#c9aeff",
+                        "on-primary": "#003642",
+                        "surface-container-high": "#262a31",
+                        "tertiary": "#bbe4ff",
+                        "primary": "#a8e8ff",
+                        "inverse-surface": "#dfe2eb",
+                        "on-primary-fixed": "#001f27",
+                        "on-tertiary-fixed": "#001e2c",
+                        "surface-bright": "#353940",
+                        "surface-variant": "#31353c",
+                        "primary-fixed": "#b4ebff",
+                        "outline-variant": "#3c494e",
+                        "tertiary-fixed": "#c4e7ff",
+                        "secondary-container": "#6001d1",
+                        "on-error-container": "#ffdad6",
+                        "outline": "#859398",
+                        "secondary-fixed": "#eaddff",
+                        "on-tertiary-fixed-variant": "#004c69",
+                        "surface": "#10141a",
+                        "on-surface": "#dfe2eb",
+                        "on-secondary-fixed-variant": "#5a00c6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "body-sm": ["Inter"],
+                        "label-code": ["JetBrains Mono"],
+                        "button": ["Inter"],
+                        "headline-xl": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-code": ["13px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "button": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(22, 27, 34, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(60, 215, 255, 0.3);
+            box-shadow: 0 0 20px rgba(60, 215, 255, 0.15);
+            transform: translateY(-4px);
+        }
+        .neon-text {
+            text-shadow: 0 0 10px rgba(60, 215, 255, 0.5);
+        }
+        .neon-border {
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+        .typing-container::after {
+            content: '|';
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .loader-bg {
+            background: #10141a;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.4s ease-out, visibility 0.4s;
+        }
+
+        .loader-logo {
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 5px #3cd7ff); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 25px #3cd7ff); transform: scale(1.1); }
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(60, 215, 255, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float-particle linear infinite;
+        }
+        @keyframes float-particle {
+            to { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+
+<div class="loader-bg" id="loader">
+    <div class="flex flex-col items-center p-4">
+        <div class="loader-logo mb-6">
+            <span class="material-symbols-outlined text-primary text-6xl" style="font-variation-settings: 'FILL' 1;">terminal</span>
+        </div>
+        <div class="h-1 w-48 bg-surface-container rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-primary to-secondary w-0 transition-all duration-200" id="loader-bar"></div>
+        </div>
+        <p class="mt-4 font-label-code text-label-code text-primary tracking-widest uppercase text-center text-sm">Initializing Portfolio...</p>
+    </div>
+</div>
+
+<div class="fixed inset-0 z-[-1]">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none" id="particles-container"></div>
+</div>
+
+<header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-white/10 shadow-[0_0_20px_rgba(60,215,255,0.15)]">
+    <nav class="flex justify-between items-center h-20 px-6 max-w-[1200px] mx-auto">
+        <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary">terminal</span>
+            <h1 class="font-headline-lg text-xl md:text-2xl font-bold tracking-tighter text-primary">EFD.dev</h1>
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="font-body-sm text-sm text-primary border-b-2 border-primary py-1" href="#home">Home</a>
+            <a class="font-body-sm text-sm text-on-surface-variant hover:text-primary transition-colors" href="#about">About</a>
+            <a class="font-body-sm text-sm text-on-surface-variant hover:text-primary transition-colors" href="#skills">Skills</a>
+            <a class="font-body-sm text-sm text-on-surface-variant hover:text-primary transition-colors" href="#portfolio">Projects</a>
+            <a class="px-6 py-2 bg-gradient-to-r from-primary-container to-secondary rounded-lg text-on-primary font-button hover:shadow-[0_0_20px_rgba(60,215,255,0.4)] transition-all text-sm" href="#contact">Resume</a>
+        </div>
+        <button class="md:hidden text-primary focus:outline-none" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </nav>
+</header>
+
+<section class="min-h-screen flex flex-col justify-center items-center px-6 pt-24 pb-20 text-center" id="home">
+    <div class="relative mb-8 scroll-reveal active">
+        <div class="w-36 h-36 md:w-48 md:h-48 rounded-full border-4 border-primary/30 p-2 neon-border mx-auto overflow-hidden">
+            <img alt="Elza Fikri Dinata Profile" class="w-full h-full object-cover rounded-full filter grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeIzwBHH1f6pkUZDW9jM2YoDf_PDib4NaGgMbtNhFoe1EVPoV3pjNBshiy9yfzame2hzxO1Jx89cOGLg2IjKIixZhp1AOxtoIQzvX4uIolqtjuZ04TC5PW0Y_GSC0Zciivp00NDlHfcYP3apDa6rT5AkQztTvIFJj3UXqvUvpICaf4D3OISnzXbhXR57jQOLqZ1rvEWc5KZW0JsEoSDBsRyBN33T8VFArIJ9lTbYt86vofNDSmLkhWQxDJMhJnpgJ1frAeDhp73VH1">
+        </div>
+        <div class="absolute bottom-0 right-1/2 translate-x-12 md:translate-x-16 bg-primary p-1.5 rounded-full shadow-lg">
+            <span class="material-symbols-outlined text-on-primary text-md md:text-xl">verified</span>
+        </div>
+    </div>
+    <div class="max-w-3xl scroll-reveal active mx-auto">
+        <h2 class="font-headline-xl text-3xl md:text-5xl lg:text-6xl mb-4 font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary-container leading-tight">
+            ELZA FIKRI DINATA
+        </h2>
+        <p class="font-body-md text-sm md:text-base text-on-surface-variant mb-4 px-2">
+            Fresh Graduate SMK RPL | Frontend Developer | IT Enthusiast | Junior Developer
+        </p>
+        <div class="h-8 mb-8 flex justify-center items-center">
+            <span class="font-label-code text-primary text-sm md:text-base bg-surface-container/50 px-4 py-1.5 rounded-md border border-white/5 typing-container" id="typewriter"></span>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md mx-auto px-4">
+            <a class="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-primary-container to-secondary rounded-lg text-on-primary font-button hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 text-sm" href="#contact">
+                <span class="material-symbols-outlined text-base">mail</span> Contact Me
+            </a>
+            <a class="w-full sm:w-auto px-6 py-3 border border-primary/50 text-primary rounded-lg font-button hover:bg-primary/10 transition-all flex items-center justify-center gap-2 text-sm" href="#portfolio">
+                <span class="material-symbols-outlined text-base">visibility</span> See Portfolio
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="max-w-[1200px] mx-auto px-6 mb-24">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 scroll-reveal">
+        <div class="glass-card p-6 md:p-8 rounded-2xl text-center">
+            <p class="text-2xl md:text-4xl font-bold text-primary mb-1">2</p>
+            <p class="font-label-code text-xs text-on-surface-variant uppercase tracking-wider">Internships</p>
+        </div>
+        <div class="glass-card p-6 md:p-8 rounded-2xl text-center">
+            <p class="text-2xl md:text-4xl font-bold text-primary mb-1">6+</p>
+            <p class="font-label-code text-xs text-on-surface-variant uppercase tracking-wider">Projects</p>
+        </div>
+        <div class="glass-card p-6 md:p-8 rounded-2xl text-center">
+            <p class="text-2xl md:text-4xl font-bold text-primary mb-1">1</p>
+            <p class="font-label-code text-xs text-on-surface-variant uppercase tracking-wider">LKS Comp</p>
+        </div>
+        <div class="glass-card p-6 md:p-8 rounded-2xl text-center">
+            <p class="text-2xl md:text-4xl font-bold text-primary mb-1">6+</p>
+            <p class="font-label-code text-xs text-on-surface-variant uppercase tracking-wider">Tech Stack</p>
+        </div>
+    </div>
+</section>
+
+<section class="max-w-[1200px] mx-auto px-6 mb-24" id="about">
+    <div class="flex flex-col lg:flex-row gap-12 items-start scroll-reveal">
+        <div class="w-full lg:w-1/2">
+            <span class="font-label-code text-primary text-xs uppercase tracking-[0.2em] mb-3 block">Introduction</span>
+            <h3 class="text-2xl md:text-3xl font-bold mb-6 text-on-background">Bridging Code and Connectivity</h3>
+            <p class="text-sm md:text-base text-on-surface-variant mb-4 leading-relaxed">
+                I am a highly motivated Software Engineering (RPL) graduate with a passion for building seamless digital experiences[cite: 156]. My journey blends the artistry of <span class="text-primary font-medium">Frontend Development</span> with the technical rigor of <span class="text-secondary font-medium">Network Systems</span>[cite: 157]. I thrive at the intersection of performance and design[cite: 158].
+            </p>
+            <p class="text-sm md:text-base text-on-surface-variant leading-relaxed">
+                With hands-on experience in industry environments, I've developed a solution-oriented mindset that values efficiency, clean architecture, and continuous learning[cite: 159].
+            </p>
+        </div>
+        <div class="w-full lg:w-1/2">
+            <div class="glass-card p-6 md:p-8 rounded-2xl">
+                <h4 class="text-xl font-bold mb-6 text-on-background flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">psychology</span> Soft Skills
+                </h4>
+                <div class="flex flex-wrap gap-2.5">
+                    <span class="px-3.5 py-1.5 bg-surface-container rounded-full border border-white/5 text-on-surface-variant font-label-code text-xs">Communication</span>
+                    <span class="px-3.5 py-1.5 bg-surface-container rounded-full border border-white/5 text-on-surface-variant font-label-code text-xs">Teamwork</span>
+                    <span class="px-3.5 py-1.5 bg-surface-container rounded-full border border-white/5 text-on-surface-variant font-label-code text-xs">Problem Solving</span>
+                    <span class="px-3.5 py-1.5 bg-surface-container rounded-full border border-white/5 text-on-surface-variant font-label-code text-xs">Adaptability</span>
+                    <span class="px-3.5 py-1.5 bg-surface-container rounded-full border border-white/5 text-on-surface-variant font-label-code text-xs">Time Management</span>
+                    <span class="px-3.5 py-1.5 bg-surface-container rounded-full border border-white/5 text-on-surface-variant font-label-code text-xs">Analytical Thinking</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="max-w-[1200px] mx-auto px-6 mb-24" id="skills">
+    <div class="text-center mb-12 scroll-reveal">
+        <span class="font-label-code text-primary text-xs uppercase tracking-[0.2em] mb-3 block">Tech Stack</span>
+        <h3 class="text-2xl md:text-3xl font-bold">Expertise & Proficiency</h3>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 scroll-reveal">
+        <div class="glass-card p-6 md:p-8 rounded-2xl flex flex-col justify-between">
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg" data-icon="code">code</span>
+                    <h4 class="text-xl font-bold">Frontend</h4>
+                </div>
+                <div class="space-y-5">
+                    <div class="skill-item">
+                        <div class="flex justify-between mb-1.5 text-xs font-label-code">
+                            <span>HTML</span> <span class="text-primary">90%</span>
+                        </div>
+                        <div class="h-2 bg-surface-container rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-primary to-primary-container shadow-[0_0_10px_rgba(60,215,255,0.5)]" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="flex justify-between mb-1.5 text-xs font-label-code">
+                            <span>CSS (Tailwind)</span> <span class="text-primary">85%</span>
+                        </div>
+                        <div class="h-2 bg-surface-container rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-primary to-primary-container shadow-[0_0_10px_rgba(60,215,255,0.5)]" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="flex justify-between mb-1.5 text-xs font-label-code">
+                            <span>JavaScript</span> <span class="text-primary">80%</span>
+                        </div>
+                        <div class="h-2 bg-surface-container rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-primary to-primary-container shadow-[0_0_10px_rgba(60,215,255,0.5)]" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="glass-card p-6 md:p-8 rounded-2xl flex flex-col justify-between">
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-secondary bg-secondary/10 p-2 rounded-lg">database</span>
+                    <h4 class="text-xl font-bold">Backend</h4>
+                </div>
+                <div class="space-y-5">
+                    <div class="skill-item">
+                        <div class="flex justify-between mb-1.5 text-xs font-label-code">
+                            <span>PHP & MySQL</span> <span class="text-secondary">60%</span>
+                        </div>
+                        <div class="h-2 bg-surface-container rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-secondary to-secondary-container shadow-[0_0_10px_rgba(210,187,255,0.5)]" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="flex justify-between mb-1.5 text-xs font-label-code">
+                            <span>Laravel</span> <span class="text-secondary">30%</span>
+                        </div>
+                        <div class="h-2 bg-surface-container rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-secondary to-secondary-container shadow-[0_0_10px_rgba(210,187,255,0.5)]" style="width: 30%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="glass-card p-6 md:p-8 rounded-2xl flex flex-col justify-between">
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-surface-tint bg-surface-tint/10 p-2 rounded-lg">router</span>
+                    <h4 class="text-xl font-bold">IT & Networking</h4>
+                </div>
+                <div class="space-y-5">
+                    <div class="skill-item">
+                        <div class="flex justify-between mb-1.5 text-xs font-label-code">
+                            <span>IT Support</span> <span class="text-surface-tint">70%</span>
+                        </div>
+                        <div class="h-2 bg-surface-container rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-surface-tint to-primary shadow-[0_0_10px_rgba(60,215,255,0.5)]" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="flex justify-between mb-1.5 text-xs font-label-code">
+                            <span>Troubleshooting</span> <span class="text-surface-tint">80%</span>
+                        </div>
+                        <div class="h-2 bg-surface-container rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-surface-tint to-primary shadow-[0_0_10px_rgba(60,215,255,0.5)]" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="flex justify-between mb-1.5 text-xs font-label-code">
+                            <span>Networking</span> <span class="text-surface-tint">70%</span>
+                        </div>
+                        <div class="h-2 bg-surface-container rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-surface-tint to-primary shadow-[0_0_10px_rgba(60,215,255,0.5)]" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="max-w-[1200px] mx-auto px-6 mb-24">
+    <div class="text-center mb-16 scroll-reveal">
+        <span class="font-label-code text-primary text-xs uppercase tracking-[0.2em] mb-3 block">Professional Journey</span>
+        <h3 class="text-2xl md:text-3xl font-bold">Work Experience</h3>
+    </div>
+    <div class="relative space-y-8 before:absolute before:left-4 md:before:left-1/2 before:top-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-primary before:to-secondary scroll-reveal">
+        <div class="relative pl-10 md:pl-0 md:flex md:justify-between items-center group">
+            <div class="hidden md:block w-[45%]"></div>
+            <div class="absolute left-2.5 md:left-1/2 md:translate-x-[-50%] w-3 h-3 bg-white rounded-full shadow-[0_0_15px_#3cd7ff] group-hover:scale-150 transition-all z-10"></div>
+            <div class="glass-card p-6 rounded-xl w-full md:w-[45%]">
+                <span class="font-label-code text-primary text-xs mb-2 block font-medium">APRIL 09 - JULI 29</span>
+                <div class="mb-3 flex items-center gap-3">
+                    <img alt="XTEND Indonesia Logo" class="h-10 w-auto object-contain rounded-lg bg-white/5 p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKM-8VWf6Z4Vf-sGR9xc9b22crfsz8FdB7n0d4PIZdSjsyTqYtcvcJpiNsTI9xbIjyRjPbxyNMyiwQcatG3q46_IGAM9hU8oeH1LkPshMjXSZzlUKDAq_oGhbw7GyUnLjpp9KZ0VAuSCFQxH5sJJzub2PfeAGJlEZztlw_md3ZFoRKDCBSP-Ykz7uMzC6flXiod6d1usoOtNJ95Csd210QTExgdE3zsH2p_6NYypluqF_OxZYG8xH5tcamS7e81NFNWydbdtxmu3eA">
+                </div>
+                <h4 class="text-lg font-bold mb-0.5">Frontend Intern</h4>
+                <p class="text-xs text-on-surface mb-3 font-medium">XTEND Indonesia [cite: 163]</p>
+                <p class="text-sm text-on-surface-variant leading-relaxed">Developed responsive web components and improved UI consistency for enterprise-level applications using modern web standards[cite: 163].</p>
+            </div>
+        </div>
+        <div class="relative pl-10 md:pl-0 md:flex md:justify-between items-center group">
+            <div class="glass-card p-6 rounded-xl w-full md:w-[45%]">
+                <span class="font-label-code text-secondary text-xs mb-2 block font-medium">OKT 10 - FEB 29</span>
+                <div class="mb-3 flex items-center gap-3">
+                    <img alt="PPKS Logo" class="h-10 w-auto object-contain rounded-lg bg-white/5 p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuNEnfqyKekXoAJUwoBMZRX_8d-fU-Gnjx7tO5YdCNot6am4LRpoOdJZ8hIsoUu5BDNwiLsDQ_LIyb1lG1Zj1MKwrFqxTqQcp5e68ZPGzcZOMR8Pv7gkvbCNv5K5sDFeTbyofQP7esCBT-DuB-Kr8kYZvM3FvuVhojJ27rBS4TLluWrfiEjyTlgFITmNvkUpWcu59g55evA3NmV5261l2IDBEPfMhynLltivViQG0FDQImfbJG-HBlEvYOzNsPQWkAcPrVHej5bQjN">
+                </div>
+                <h4 class="text-lg font-bold mb-0.5">IT Intern</h4>
+                <p class="text-xs text-on-surface mb-3 font-medium">PPKS (Pusat Penelitian Kelapa Sawit) [cite: 164]</p>
+                <p class="text-sm text-on-surface-variant leading-relaxed">Managed network maintenance, assisted in hardware troubleshooting, and provided technical support for staff across multiple departments[cite: 164].</p>
+            </div>
+            <div class="absolute left-2.5 md:left-1/2 md:translate-x-[-50%] w-3 h-3 bg-white rounded-full shadow-[0_0_15px_#d2bbff] group-hover:scale-150 transition-all z-10"></div>
+            <div class="hidden md:block w-[45%]"></div>
+        </div>
+    </div>
+</section>
+
+<section class="max-w-[1200px] mx-auto px-6 mb-24">
+    <div class="glass-card p-6 md:p-10 rounded-3xl overflow-hidden relative group scroll-reveal">
+        <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-15 transition-all group-hover:rotate-12 pointer-events-none">
+            <span class="material-symbols-outlined text-[100px] md:text-[140px]">trophy</span>
+        </div>
+        <div class="relative z-10">
+            <span class="font-label-code text-primary text-xs uppercase tracking-[0.2em] mb-3 block">Recognition</span>
+            <h3 class="text-2xl font-bold mb-6">Competitions & Achievements</h3>
+            <div class="flex flex-col sm:flex-row items-start gap-4">
+                <div class="bg-primary/10 p-3 rounded-xl border border-primary/20 flex-shrink-0">
+                    <span class="material-symbols-outlined text-primary text-3xl font-fill">military_tech</span>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-1">LKS 2025 Participant</h4>
+                    <p class="text-sm md:text-base text-on-surface-variant leading-relaxed">
+                        Lomba Kompetensi Siswa (LKS) in Network Systems Administration[cite: 165]. Demonstrated advanced expertise in configuring server environments, network security, and infrastructure management[cite: 166].
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="max-w-[1200px] mx-auto px-6 mb-24" id="portfolio">
+    <div class="text-center mb-12 scroll-reveal">
+        <span class="font-label-code text-primary text-xs uppercase tracking-[0.2em] mb-3 block">Works</span>
+        <h3 class="text-2xl md:text-3xl font-bold">Selected Projects</h3>
+    </div>
+    <div class="flex justify-center gap-2 mb-10 flex-wrap scroll-reveal">
+        <button class="filter-btn active px-5 py-1.5 rounded-full border border-primary bg-primary/10 text-primary font-label-code text-xs transition-all" data-filter="all">All</button>
+        <button class="filter-btn px-5 py-1.5 rounded-full border border-white/10 text-on-surface-variant hover:border-primary hover:text-primary font-label-code text-xs transition-all" data-filter="web">Web App</button>
+        <button class="filter-btn px-5 py-1.5 rounded-full border border-white/10 text-on-surface-variant hover:border-primary hover:text-primary font-label-code text-xs transition-all" data-filter="system">System</button>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 scroll-reveal">
+        <div class="project-card group glass-card rounded-2xl overflow-hidden flex flex-col justify-between" data-category="system">
+            <div>
+                <div class="h-48 sm:h-56 lg:h-64 relative overflow-hidden bg-surface-container">
+                    <img alt="Catering System" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgG57GIxQoyH6NDIYNuBjBBDgA0engvhB9G3SZ701JMqvRA5J7vmjVJGQpJ5gbpJCV-X4B9Fh1-zRAZsxImDUBEsx1lxAt7sWO_TgUpYBp6e9RZ5gXTOsYhbVa4ds6ApwWvLilKul_IhtqwHwY4ie7dms9JNWvIfhGdHxhgTswtcpwVzzbkHY_GHZuKG83_9f24V36PN7pkd3NDhwUApvDmr9v6GmKLO3vfybxTZ-Mz5gxgIYdf4XtqEzKCfOI_9K_gBpjUiIVbe8k">
+                    <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+                </div>
+                <div class="p-6 lg:p-8">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="font-label-code text-primary text-xs font-semibold uppercase">System</span>
+                        <div class="flex gap-2 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-base">terminal</span>
+                            <span class="material-symbols-outlined text-base">database</span>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Catering Order System</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed mb-4">A full-stack management system for catering businesses to handle orders, menu planning, and delivery tracking.</p>
+                </div>
+            </div>
+            <div class="px-6 pb-6 lg:px-8 lg:pb-8">
+                <a class="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all font-button text-sm font-medium" href="#">
+                    View Project <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+        <div class="project-card group glass-card rounded-2xl overflow-hidden flex flex-col justify-between" data-category="web">
+            <div>
+                <div class="h-48 sm:h-56 lg:h-64 relative overflow-hidden bg-surface-container">
+                    <img alt="School Complaint System" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfQ8RSotIVaFY9bYu3-KKCs6GxT5YlHdfWK76IA82wNmnKMusV3JmqRoAK-gLB-ZmGLfa0xgBWYFfFW1eSqcGAvfWvvJVxZBHDi8B8_xFWuSX5j4kiBWmzA0WXhlbvhocaB1vNKt-V2H041j_P3aEASXyk6M5NaDOIQTeCfle4LjGA0KtE7pMuIU_cWdOggfcEB01vmBI3DTPybTA7kEaEL2ch3SJsxpvQ3lC8IvisZTITLYb76g9iDztAMmLUr2UpqYw1q4PfqBHy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+                </div>
+                <div class="p-6 lg:p-8">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="font-label-code text-secondary text-xs font-semibold uppercase">Web App</span>
+                        <div class="flex gap-2 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-base">security</span>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">School Complaint System</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed mb-4">A secure platform for students to report issues and track resolution progress anonymously or openly[cite: 172].</p>
+                </div>
+            </div>
+            <div class="px-6 pb-6 lg:px-8 lg:pb-8">
+                <a class="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all font-button text-sm font-medium" href="#">
+                    View Project <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="max-w-[1200px] mx-auto px-6 mb-24" id="contact">
+    <div class="glass-card p-6 md:p-12 lg:p-16 rounded-3xl flex flex-col lg:flex-row gap-12 lg:gap-16 scroll-reveal">
+        <div class="w-full lg:w-1/2 flex flex-col justify-between">
+            <div>
+                <span class="font-label-code text-primary text-xs uppercase tracking-[0.2em] mb-3 block">Get In Touch</span>
+                <h3 class="text-2xl md:text-3xl font-bold mb-6">Let's Discuss Your Next Innovation</h3>
+                <div class="space-y-5">
+                    <div class="flex items-center gap-4">
+                        <div class="w-11 h-11 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20 flex-shrink-0">
+                            <span class="material-symbols-outlined text-primary text-xl">mail</span>
+                        </div>
+                        <div class="overflow-hidden">
+                            <p class="text-on-surface-variant text-[10px] font-label-code uppercase tracking-wider">Email</p>
+                            <p class="text-sm md:text-base font-medium truncate">elzadinata360@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-11 h-11 bg-secondary/10 rounded-full flex items-center justify-center border border-secondary/20 flex-shrink-0">
+                            <span class="material-symbols-outlined text-secondary text-xl">location_on</span>
+                        </div>
+                        <div>
+                            <p class="text-on-surface-variant text-[10px] font-label-code uppercase tracking-wider">Location</p>
+                            <p class="text-sm md:text-base font-medium">Medan, Delitua</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-3 pt-8">
+                <a aria-label="Link" class="w-10 h-10 glass-card rounded-full flex items-center justify-center hover:bg-primary hover:text-on-primary hover:border-primary transition-all text-on-surface-variant" href="#">
+                    <span class="material-symbols-outlined text-lg">link</span>
+                </a>
+                <a aria-label="Share" class="w-10 h-10 glass-card rounded-full flex items-center justify-center hover:bg-primary hover:text-on-primary hover:border-primary transition-all text-on-surface-variant" href="#">
+                    <span class="material-symbols-outlined text-lg">share</span>
+                </a>
+            </div>
+        </div>
+        <div class="w-full lg:w-1/2">
+            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message feature template active!');">
+                <div>
+                    <label class="block font-label-code text-xs text-on-surface-variant mb-1.5">Full Name</label>
+                    <input class="w-full bg-surface-container border border-white/10 rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm transition-all text-on-background" placeholder="John Doe" type="text" required>
+                </div>
+                <div>
+                    <label class="block font-label-code text-xs text-on-surface-variant mb-1.5">Email Address</label>
+                    <input class="w-full bg-surface-container border border-white/10 rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm transition-all text-on-background" placeholder="john@example.com" type="email" required>
+                </div>
+                <div>
+                    <label class="block font-label-code text-xs text-on-surface-variant mb-1.5">Message</label>
+                    <textarea class="w-full bg-surface-container border border-white/10 rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm transition-all text-on-background" placeholder="How can I help you?" rows="4" required></textarea>
+                </div>
+                <button class="w-full py-3.5 bg-gradient-to-r from-primary to-secondary rounded-xl text-on-primary font-button font-semibold text-sm hover:shadow-[0_0_20px_rgba(60,215,255,0.4)] transition-all mt-2" type="submit">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="w-full py-12 border-t border-outline-variant/30 bg-background pb-28 md:pb-12">
+    <div class="flex flex-col md:flex-row justify-between items-center px-6 max-w-[1200px] mx-auto gap-6 text-center md:text-left">
+        <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-surface-tint">terminal</span>
+            <p class="font-label-code text-sm text-surface-tint font-bold">EFD.dev</p>
+        </div>
+        <p class="font-body-sm text-xs md:text-sm text-on-surface-variant">© 2026 Elza Fikri Dinata. Built with precision.</p>
+        <div class="flex gap-6 text-xs md:text-sm font-medium">
+            <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Github</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">LinkedIn</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Source</a>
+        </div>
+    </div>
+</footer>
+
+<div class="md:hidden fixed bottom-6 left-0 right-0 z-50 flex justify-around items-center px-4 py-2 bg-surface/60 backdrop-blur-lg border border-white/10 rounded-full w-[90%] max-w-sm mx-auto shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+    <a aria-label="Home" class="text-on-surface-variant p-2.5 hover:text-primary transition-all flex items-center justify-center rounded-full" href="#home">
+        <span class="material-symbols-outlined text-xl">home</span>
+    </a>
+    <a aria-label="About" class="text-on-surface-variant p-2.5 hover:text-primary transition-all flex items-center justify-center rounded-full" href="#about">
+        <span class="material-symbols-outlined text-xl">person</span>
+    </a>
+    <a aria-label="Skills" class="text-on-surface-variant p-2.5 hover:text-primary transition-all flex items-center justify-center rounded-full" href="#skills">
+        <span class="material-symbols-outlined text-xl">code</span>
+    </a>
+    <a aria-label="Portfolio" class="text-on-surface-variant p-2.5 hover:text-primary transition-all flex items-center justify-center rounded-full" href="#portfolio">
+        <span class="material-symbols-outlined text-xl">work</span>
+    </a>
+    <a aria-label="Contact" class="text-on-surface-variant p-2.5 hover:text-primary transition-all flex items-center justify-center rounded-full" href="#contact">
+        <span class="material-symbols-outlined text-xl">mail</span>
+    </a>
+</div>
+
+<script>
+        // Optimized Loader logic
+        window.addEventListener('DOMContentLoaded', () => {
+            const loader = document.getElementById('loader');
+            const loaderBar = document.getElementById('loader-bar');
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.floor(Math.random() * 15) + 8; 
+                if (progress >= 100) {
+                    progress = 100;
+                    loaderBar.style.width = '100%';
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loader.style.opacity = '0';
+                        setTimeout(() => {
+                            loader.style.visibility = 'hidden';
+                        }, 400);
+                    }, 200);
+                } else {
+                    loaderBar.style.width = progress + '%';
+                }
+            }, 400);
+        });
+
+        // Typewriter Effect
+        const phrases = ["Web Developer", "Frontend Developer", "IT Support", "Networking Enthusiast"];
+        let i = 0;
+        let j = 0;
+        let currentPhrase = "";
+        let isDeleting = false;
+        const typeTarget = document.getElementById('typewriter');
+
+        function type() {
+            const current = i % phrases.length;
+            const fullPhrase = phrases[current];
+
+            if (isDeleting) {
+                currentPhrase = fullPhrase.substring(0, j - 1);
+                j--;
+            } else {
+                currentPhrase = fullPhrase.substring(0, j + 1);
+                j++;
+            }
+
+            typeTarget.textContent = currentPhrase;
+
+            let typeSpeed = 100;
+            if (isDeleting) typeSpeed /= 2;
+
+            if (!isDeleting && j === fullPhrase.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && j === 0) {
+                isDeleting = false;
+                i++;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+        // Jalankan efek mengetik setelah pemuatan selesai
+        setTimeout(type, 500);
+
+        // Scroll Reveal Animation Engine
+        const observerOptions = {
+            root: null,
+            threshold: 0.1,
+            rootMargin: "0px 0px -40px 0px"
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Background Ambient Particles Generator
+        const particlesContainer = document.getElementById('particles-container');
+        const maxParticles = window.innerWidth < 768 ? 8 : 15; // Mengurangi partikel di mobile demi performa hemat baterai
+
+        for(let k=0; k<maxParticles; k++) {
+            createParticle(true);
+        }
+
+        function createParticle(isInitial = false) {
+            if (!particlesContainer) return;
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            const size = Math.random() * 3 + 2;
+            const posX = Math.random() * 100;
+            const duration = Math.random() * 10 + 12;
+            
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${posX}%`;
+            particle.style.bottom = isInitial ? `${Math.random() * 100}vh` : `-20px`;
+            particle.style.animationDuration = `${duration}s`;
+            
+            particlesContainer.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, duration * 1000);
+        }
+        setInterval(() => {
+            if (document.querySelectorAll('.particle').length < maxParticles) {
+                createParticle(false);
+            }
+        }, 1200);
+
+        // Dynamic Portfolio Filter System
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-primary/10', 'text-primary', 'border-primary');
+                    b.classList.add('text-on-surface-variant', 'border-white/10');
+                });
+     
+                btn.classList.add('active', 'bg-primary/10', 'text-primary', 'border-primary');
+                btn.classList.remove('text-on-surface-variant', 'border-white/10');
+
+                const filter = btn.dataset.filter;
+                projectCards.forEach(card => {
+                    card.style.transition = "all 0.4s ease";
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.classList.remove('hidden');
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 20);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => card.classList.add('hidden'), 400);
+                    }
+                });
+            });
+        });
+    </script>
+</body></html>
